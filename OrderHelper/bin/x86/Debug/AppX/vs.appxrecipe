@@ -31,13 +31,13 @@
     <AppXManifest Include="C:\Temp\UWP\C#\OrderHelper\OrderHelper\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-07-22T11:53:07.767</Modified>
+      <Modified>2017-07-23T13:38:46.530</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Temp\UWP\C#\OrderHelper\OrderHelper\bin\x86\Debug\OrderHelper.exe">
       <PackagePath>entrypoint\OrderHelper.exe</PackagePath>
-      <Modified>2017-07-22T11:53:05.423</Modified>
+      <Modified>2017-07-23T13:38:45.722</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ImmortalYang\.nuget\packages\Microsoft.AspNetCore.Hosting.Abstractions\1.1.1\lib\netstandard1.3\Microsoft.AspNetCore.Hosting.Abstractions.dll">
       <PackagePath>Microsoft.AspNetCore.Hosting.Abstractions.dll</PackagePath>
@@ -603,6 +603,16 @@
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
       <Modified>2016-06-11T11:15:04.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Temp\UWP\C#\OrderHelper\OrderHelper\Assets\SplashScreen.scale-400.png">
+      <PackagePath>Assets\SplashScreen.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-07-23T11:41:10.067</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Temp\UWP\C#\OrderHelper\OrderHelper\Assets\SplashScreen.scale-100.png">
+      <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-07-23T11:41:56.096</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Temp\UWP\C#\OrderHelper\OrderHelper\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
@@ -617,11 +627,6 @@
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-07-22T10:33:43.650</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Temp\UWP\C#\OrderHelper\OrderHelper\Assets\SplashScreen.scale-200.png">
-      <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-07-22T10:32:56.507</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Temp\UWP\C#\OrderHelper\OrderHelper\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
@@ -643,7 +648,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Temp\UWP\C#\OrderHelper\OrderHelper\bin\x86\Debug\OrderHelper.xr.xml">
       <PackagePath>OrderHelper.xr.xml</PackagePath>
-      <Modified>2017-07-22T10:24:52.505</Modified>
+      <Modified>2017-07-23T13:38:45.474</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.15063.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -652,11 +657,11 @@
     <AppxPackagedFile Include="C:\Temp\UWP\C#\OrderHelper\OrderHelper\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-07-22T11:53:07.208</Modified>
+      <Modified>2017-07-23T13:38:46.278</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Temp\UWP\C#\OrderHelper\OrderHelper\bin\x86\Debug\Core\OrderHelper.exe">
       <PackagePath>OrderHelper.exe</PackagePath>
-      <Modified>2017-07-22T11:53:07.755</Modified>
+      <Modified>2017-07-23T13:38:46.526</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

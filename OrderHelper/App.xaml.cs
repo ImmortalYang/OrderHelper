@@ -14,6 +14,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.EntityFrameworkCore;
+using OrderHelper.Data;
 
 namespace OrderHelper
 {
@@ -30,6 +32,11 @@ namespace OrderHelper
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            using (var db = new OrderHelperContext())
+            {
+                db.Database.Migrate();
+                DbInitializer.Initialize(db);
+            }
         }
 
         /// <summary>

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using OrderHelper.Data;
+using OrderHelper.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +25,23 @@ namespace OrderHelper
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        public ICollection<Category> Categories;
         public MainPage()
         {
+            using (var db = new OrderHelperContext())
+            {
+                Categories = db.Categories
+                    .Include(c => c.Products)
+                    .ToList();
+            }
             this.InitializeComponent();
         }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+            
+        }
+
     }
 }

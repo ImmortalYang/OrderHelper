@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OrderHelper.Models
 {
-    class Employee
+    public class Employee
     {
         // Properties
         public int ID { get; set; }

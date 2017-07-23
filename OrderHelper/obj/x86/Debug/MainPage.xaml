@@ -1,4 +1,4 @@
-﻿<Page
+﻿<Page x:ConnectionId='1'
     x:Class="OrderHelper.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -7,36 +7,36 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:data="using:OrderHelper.Models"
     mc:Ignorable="d"
-    Loaded="Page_Loaded">
+                        >
 
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Pivot x:Name="menuPivot"
+        <Pivot x:ConnectionId='2' x:Name="menuPivot"
                Grid.Column="0" 
-               ItemsSource="{x:Bind Categories}">
+                                                >
 
             <Pivot.HeaderTemplate>
-                <DataTemplate x:DataType="data:Category">
-                    <TextBlock Text="{x:Bind CategoryName}" Padding="20 10 20 10"/>
+                <DataTemplate                           >
+                    <TextBlock x:ConnectionId='3'                              Padding="20 10 20 10"/>
                 </DataTemplate>
             </Pivot.HeaderTemplate>
             <Pivot.ItemTemplate>
-                <DataTemplate x:DataType="data:Category">
-                    <ListView ItemsSource="{x:Bind Products}">
+                <DataTemplate                           >
+                    <ListView x:ConnectionId='4'                                >
                         <ListView.ItemTemplate>
-                            <DataTemplate x:DataType="data:Product">
-                                <Grid>
+                            <DataTemplate                          >
+                                <Grid x:ConnectionId='5'>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="3*"></ColumnDefinition>
                                         <ColumnDefinition Width="Auto"></ColumnDefinition>
                                         <ColumnDefinition Width="*"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
-                                    <TextBlock Text="{x:Bind ProductName}" Grid.Column="0" />
+                                    <TextBlock x:ConnectionId='6'                             Grid.Column="0" />
                                     <TextBlock Text="$"                    Grid.Column="1" />
-                                    <TextBlock Text="{x:Bind UnitPrice}"   Grid.Column="2" />
+                                    <TextBlock x:ConnectionId='7'                             Grid.Column="2" />
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -63,3 +63,4 @@
         </Style>
     </Page.Resources>
 </Page>
+
