@@ -31,13 +31,13 @@
     <AppXManifest Include="C:\Temp\UWP\C#\OrderHelper\OrderHelper\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-07-23T13:38:46.530</Modified>
+      <Modified>2017-07-24T23:49:53.430</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Temp\UWP\C#\OrderHelper\OrderHelper\bin\x86\Debug\OrderHelper.exe">
       <PackagePath>entrypoint\OrderHelper.exe</PackagePath>
-      <Modified>2017-07-23T13:38:45.722</Modified>
+      <Modified>2017-07-24T23:49:51.881</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ImmortalYang\.nuget\packages\Microsoft.AspNetCore.Hosting.Abstractions\1.1.1\lib\netstandard1.3\Microsoft.AspNetCore.Hosting.Abstractions.dll">
       <PackagePath>Microsoft.AspNetCore.Hosting.Abstractions.dll</PackagePath>
@@ -648,7 +648,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Temp\UWP\C#\OrderHelper\OrderHelper\bin\x86\Debug\OrderHelper.xr.xml">
       <PackagePath>OrderHelper.xr.xml</PackagePath>
-      <Modified>2017-07-23T13:38:45.474</Modified>
+      <Modified>2017-07-24T23:36:35.130</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.15063.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -657,11 +657,11 @@
     <AppxPackagedFile Include="C:\Temp\UWP\C#\OrderHelper\OrderHelper\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-07-23T13:38:46.278</Modified>
+      <Modified>2017-07-24T23:49:53.056</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Temp\UWP\C#\OrderHelper\OrderHelper\bin\x86\Debug\Core\OrderHelper.exe">
       <PackagePath>OrderHelper.exe</PackagePath>
-      <Modified>2017-07-23T13:38:46.526</Modified>
+      <Modified>2017-07-24T23:49:53.426</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

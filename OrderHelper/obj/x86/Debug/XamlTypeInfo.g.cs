@@ -132,15 +132,41 @@ namespace OrderHelper.OrderHelper_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[3];
-            _typeNameTable[0] = "OrderHelper.MainPage";
-            _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable = new string[16];
+            _typeNameTable[0] = "OrderHelper.DecimalConverter";
+            _typeNameTable[1] = "Object";
+            _typeNameTable[2] = "OrderHelper.ReverseBoolConverter";
+            _typeNameTable[3] = "OrderHelper.MainPage";
+            _typeNameTable[4] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[5] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[6] = "OrderHelper.Models.Order";
+            _typeNameTable[7] = "System.Collections.ObjectModel.ObservableCollection`1<OrderHelper.Models.OrderDetail>";
+            _typeNameTable[8] = "System.Collections.ObjectModel.Collection`1<OrderHelper.Models.OrderDetail>";
+            _typeNameTable[9] = "OrderHelper.Models.OrderDetail";
+            _typeNameTable[10] = "Int32";
+            _typeNameTable[11] = "String";
+            _typeNameTable[12] = "System.Decimal";
+            _typeNameTable[13] = "System.ValueType";
+            _typeNameTable[14] = "OrderHelper.Models.Product";
+            _typeNameTable[15] = "Boolean";
 
-            _typeTable = new global::System.Type[3];
-            _typeTable[0] = typeof(global::OrderHelper.MainPage);
-            _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable = new global::System.Type[16];
+            _typeTable[0] = typeof(global::OrderHelper.DecimalConverter);
+            _typeTable[1] = typeof(global::System.Object);
+            _typeTable[2] = typeof(global::OrderHelper.ReverseBoolConverter);
+            _typeTable[3] = typeof(global::OrderHelper.MainPage);
+            _typeTable[4] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[5] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[6] = typeof(global::OrderHelper.Models.Order);
+            _typeTable[7] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::OrderHelper.Models.OrderDetail>);
+            _typeTable[8] = typeof(global::System.Collections.ObjectModel.Collection<global::OrderHelper.Models.OrderDetail>);
+            _typeTable[9] = typeof(global::OrderHelper.Models.OrderDetail);
+            _typeTable[10] = typeof(global::System.Int32);
+            _typeTable[11] = typeof(global::System.String);
+            _typeTable[12] = typeof(global::System.Decimal);
+            _typeTable[13] = typeof(global::System.ValueType);
+            _typeTable[14] = typeof(global::OrderHelper.Models.Product);
+            _typeTable[15] = typeof(global::System.Boolean);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -175,7 +201,26 @@ namespace OrderHelper.OrderHelper_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_MainPage() { return new global::OrderHelper.MainPage(); }
+        private object Activate_0_DecimalConverter() { return new global::OrderHelper.DecimalConverter(); }
+        private object Activate_2_ReverseBoolConverter() { return new global::OrderHelper.ReverseBoolConverter(); }
+        private object Activate_3_MainPage() { return new global::OrderHelper.MainPage(); }
+        private object Activate_6_Order() { return new global::OrderHelper.Models.Order(); }
+        private object Activate_7_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::OrderHelper.Models.OrderDetail>(); }
+        private object Activate_8_Collection() { return new global::System.Collections.ObjectModel.Collection<global::OrderHelper.Models.OrderDetail>(); }
+        private object Activate_9_OrderDetail() { return new global::OrderHelper.Models.OrderDetail(); }
+        private object Activate_14_Product() { return new global::OrderHelper.Models.Product(); }
+        private void VectorAdd_7_ObservableCollection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::OrderHelper.Models.OrderDetail>)instance;
+            var newItem = (global::OrderHelper.Models.OrderDetail)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_8_Collection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::OrderHelper.Models.OrderDetail>)instance;
+            var newItem = (global::OrderHelper.Models.OrderDetail)item;
+            collection.Add(newItem);
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -187,18 +232,105 @@ namespace OrderHelper.OrderHelper_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  OrderHelper.MainPage
-                userType = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_0_MainPage;
+            case 0:   //  OrderHelper.DecimalConverter
+                userType = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_0_DecimalConverter;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 1:   //  Windows.UI.Xaml.Controls.Page
+            case 1:   //  Object
                 xamlType = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 2:   //  Windows.UI.Xaml.Controls.UserControl
+            case 2:   //  OrderHelper.ReverseBoolConverter
+                userType = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_2_ReverseBoolConverter;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 3:   //  OrderHelper.MainPage
+                userType = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_3_MainPage;
+                userType.AddMemberName("Order");
+                userType.AddMemberName("OrderDetails");
+                userType.AddMemberName("HasOrderItem");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 4:   //  Windows.UI.Xaml.Controls.Page
+                xamlType = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 5:   //  Windows.UI.Xaml.Controls.UserControl
+                xamlType = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 6:   //  OrderHelper.Models.Order
+                userType = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 7:   //  System.Collections.ObjectModel.ObservableCollection`1<OrderHelper.Models.OrderDetail>
+                userType = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.Collection`1<OrderHelper.Models.OrderDetail>"));
+                userType.CollectionAdd = VectorAdd_7_ObservableCollection;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 8:   //  System.Collections.ObjectModel.Collection`1<OrderHelper.Models.OrderDetail>
+                userType = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_8_Collection;
+                userType.CollectionAdd = VectorAdd_8_Collection;
+                xamlType = userType;
+                break;
+
+            case 9:   //  OrderHelper.Models.OrderDetail
+                userType = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_9_OrderDetail;
+                userType.AddMemberName("ID");
+                userType.AddMemberName("OrderID");
+                userType.AddMemberName("ProductID");
+                userType.AddMemberName("Remarks");
+                userType.AddMemberName("UnitPrice");
+                userType.AddMemberName("Quantity");
+                userType.AddMemberName("Product");
+                userType.AddMemberName("Order");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 10:   //  Int32
+                xamlType = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 11:   //  String
+                xamlType = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 12:   //  System.Decimal
+                userType = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 13:   //  System.ValueType
+                userType = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                xamlType = userType;
+                break;
+
+            case 14:   //  OrderHelper.Models.Product
+                userType = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 15:   //  Boolean
                 xamlType = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
             }
@@ -206,11 +338,191 @@ namespace OrderHelper.OrderHelper_XamlTypeInfo
         }
 
 
+        private object get_0_MainPage_Order(object instance)
+        {
+            var that = (global::OrderHelper.MainPage)instance;
+            return that.Order;
+        }
+        private void set_0_MainPage_Order(object instance, object Value)
+        {
+            var that = (global::OrderHelper.MainPage)instance;
+            that.Order = (global::OrderHelper.Models.Order)Value;
+        }
+        private object get_1_MainPage_OrderDetails(object instance)
+        {
+            var that = (global::OrderHelper.MainPage)instance;
+            return that.OrderDetails;
+        }
+        private void set_1_MainPage_OrderDetails(object instance, object Value)
+        {
+            var that = (global::OrderHelper.MainPage)instance;
+            that.OrderDetails = (global::System.Collections.ObjectModel.ObservableCollection<global::OrderHelper.Models.OrderDetail>)Value;
+        }
+        private object get_2_OrderDetail_ID(object instance)
+        {
+            var that = (global::OrderHelper.Models.OrderDetail)instance;
+            return that.ID;
+        }
+        private void set_2_OrderDetail_ID(object instance, object Value)
+        {
+            var that = (global::OrderHelper.Models.OrderDetail)instance;
+            that.ID = (global::System.Int32)Value;
+        }
+        private object get_3_OrderDetail_OrderID(object instance)
+        {
+            var that = (global::OrderHelper.Models.OrderDetail)instance;
+            return that.OrderID;
+        }
+        private void set_3_OrderDetail_OrderID(object instance, object Value)
+        {
+            var that = (global::OrderHelper.Models.OrderDetail)instance;
+            that.OrderID = (global::System.Int32)Value;
+        }
+        private object get_4_OrderDetail_ProductID(object instance)
+        {
+            var that = (global::OrderHelper.Models.OrderDetail)instance;
+            return that.ProductID;
+        }
+        private void set_4_OrderDetail_ProductID(object instance, object Value)
+        {
+            var that = (global::OrderHelper.Models.OrderDetail)instance;
+            that.ProductID = (global::System.Int32)Value;
+        }
+        private object get_5_OrderDetail_Remarks(object instance)
+        {
+            var that = (global::OrderHelper.Models.OrderDetail)instance;
+            return that.Remarks;
+        }
+        private void set_5_OrderDetail_Remarks(object instance, object Value)
+        {
+            var that = (global::OrderHelper.Models.OrderDetail)instance;
+            that.Remarks = (global::System.String)Value;
+        }
+        private object get_6_OrderDetail_UnitPrice(object instance)
+        {
+            var that = (global::OrderHelper.Models.OrderDetail)instance;
+            return that.UnitPrice;
+        }
+        private void set_6_OrderDetail_UnitPrice(object instance, object Value)
+        {
+            var that = (global::OrderHelper.Models.OrderDetail)instance;
+            that.UnitPrice = (global::System.Decimal)Value;
+        }
+        private object get_7_OrderDetail_Quantity(object instance)
+        {
+            var that = (global::OrderHelper.Models.OrderDetail)instance;
+            return that.Quantity;
+        }
+        private void set_7_OrderDetail_Quantity(object instance, object Value)
+        {
+            var that = (global::OrderHelper.Models.OrderDetail)instance;
+            that.Quantity = (global::System.Int32)Value;
+        }
+        private object get_8_OrderDetail_Product(object instance)
+        {
+            var that = (global::OrderHelper.Models.OrderDetail)instance;
+            return that.Product;
+        }
+        private void set_8_OrderDetail_Product(object instance, object Value)
+        {
+            var that = (global::OrderHelper.Models.OrderDetail)instance;
+            that.Product = (global::OrderHelper.Models.Product)Value;
+        }
+        private object get_9_OrderDetail_Order(object instance)
+        {
+            var that = (global::OrderHelper.Models.OrderDetail)instance;
+            return that.Order;
+        }
+        private void set_9_OrderDetail_Order(object instance, object Value)
+        {
+            var that = (global::OrderHelper.Models.OrderDetail)instance;
+            that.Order = (global::OrderHelper.Models.Order)Value;
+        }
+        private object get_10_MainPage_HasOrderItem(object instance)
+        {
+            var that = (global::OrderHelper.MainPage)instance;
+            return that.HasOrderItem;
+        }
+        private void set_10_MainPage_HasOrderItem(object instance, object Value)
+        {
+            var that = (global::OrderHelper.MainPage)instance;
+            that.HasOrderItem = (global::System.Boolean)Value;
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
             global::OrderHelper.OrderHelper_XamlTypeInfo.XamlMember xamlMember = null;
-            // No Local Properties
+            global::OrderHelper.OrderHelper_XamlTypeInfo.XamlUserType userType;
+
+            switch (longMemberName)
+            {
+            case "OrderHelper.MainPage.Order":
+                userType = (global::OrderHelper.OrderHelper_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OrderHelper.MainPage");
+                xamlMember = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlMember(this, "Order", "OrderHelper.Models.Order");
+                xamlMember.Getter = get_0_MainPage_Order;
+                xamlMember.Setter = set_0_MainPage_Order;
+                break;
+            case "OrderHelper.MainPage.OrderDetails":
+                userType = (global::OrderHelper.OrderHelper_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OrderHelper.MainPage");
+                xamlMember = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlMember(this, "OrderDetails", "System.Collections.ObjectModel.ObservableCollection`1<OrderHelper.Models.OrderDetail>");
+                xamlMember.Getter = get_1_MainPage_OrderDetails;
+                xamlMember.Setter = set_1_MainPage_OrderDetails;
+                break;
+            case "OrderHelper.Models.OrderDetail.ID":
+                userType = (global::OrderHelper.OrderHelper_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OrderHelper.Models.OrderDetail");
+                xamlMember = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlMember(this, "ID", "Int32");
+                xamlMember.Getter = get_2_OrderDetail_ID;
+                xamlMember.Setter = set_2_OrderDetail_ID;
+                break;
+            case "OrderHelper.Models.OrderDetail.OrderID":
+                userType = (global::OrderHelper.OrderHelper_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OrderHelper.Models.OrderDetail");
+                xamlMember = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlMember(this, "OrderID", "Int32");
+                xamlMember.Getter = get_3_OrderDetail_OrderID;
+                xamlMember.Setter = set_3_OrderDetail_OrderID;
+                break;
+            case "OrderHelper.Models.OrderDetail.ProductID":
+                userType = (global::OrderHelper.OrderHelper_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OrderHelper.Models.OrderDetail");
+                xamlMember = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlMember(this, "ProductID", "Int32");
+                xamlMember.Getter = get_4_OrderDetail_ProductID;
+                xamlMember.Setter = set_4_OrderDetail_ProductID;
+                break;
+            case "OrderHelper.Models.OrderDetail.Remarks":
+                userType = (global::OrderHelper.OrderHelper_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OrderHelper.Models.OrderDetail");
+                xamlMember = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlMember(this, "Remarks", "String");
+                xamlMember.Getter = get_5_OrderDetail_Remarks;
+                xamlMember.Setter = set_5_OrderDetail_Remarks;
+                break;
+            case "OrderHelper.Models.OrderDetail.UnitPrice":
+                userType = (global::OrderHelper.OrderHelper_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OrderHelper.Models.OrderDetail");
+                xamlMember = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlMember(this, "UnitPrice", "System.Decimal");
+                xamlMember.Getter = get_6_OrderDetail_UnitPrice;
+                xamlMember.Setter = set_6_OrderDetail_UnitPrice;
+                break;
+            case "OrderHelper.Models.OrderDetail.Quantity":
+                userType = (global::OrderHelper.OrderHelper_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OrderHelper.Models.OrderDetail");
+                xamlMember = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlMember(this, "Quantity", "Int32");
+                xamlMember.Getter = get_7_OrderDetail_Quantity;
+                xamlMember.Setter = set_7_OrderDetail_Quantity;
+                break;
+            case "OrderHelper.Models.OrderDetail.Product":
+                userType = (global::OrderHelper.OrderHelper_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OrderHelper.Models.OrderDetail");
+                xamlMember = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlMember(this, "Product", "OrderHelper.Models.Product");
+                xamlMember.Getter = get_8_OrderDetail_Product;
+                xamlMember.Setter = set_8_OrderDetail_Product;
+                break;
+            case "OrderHelper.Models.OrderDetail.Order":
+                userType = (global::OrderHelper.OrderHelper_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OrderHelper.Models.OrderDetail");
+                xamlMember = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlMember(this, "Order", "OrderHelper.Models.Order");
+                xamlMember.Getter = get_9_OrderDetail_Order;
+                xamlMember.Setter = set_9_OrderDetail_Order;
+                break;
+            case "OrderHelper.MainPage.HasOrderItem":
+                userType = (global::OrderHelper.OrderHelper_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OrderHelper.MainPage");
+                xamlMember = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlMember(this, "HasOrderItem", "Boolean");
+                xamlMember.Getter = get_10_MainPage_HasOrderItem;
+                xamlMember.Setter = set_10_MainPage_HasOrderItem;
+                break;
+            }
             return xamlMember;
         }
     }

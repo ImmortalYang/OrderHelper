@@ -95,6 +95,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters.cs" />
     <Compile Include="Data\DbInitializer.cs" />
     <Compile Include="Data\OrderHelperContext.cs" />
     <Compile Include="MainPage.xaml.cs">
@@ -103,6 +104,22 @@
     <Compile Include="Migrations\20170722121610_InitialMigration.cs" />
     <Compile Include="Migrations\20170722121610_InitialMigration.designer.cs">
       <DependentUpon>20170722121610_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20170724015404_AddRemarks.cs" />
+    <Compile Include="Migrations\20170724015404_AddRemarks.designer.cs">
+      <DependentUpon>20170724015404_AddRemarks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20170724125946_AddPayment.cs" />
+    <Compile Include="Migrations\20170724125946_AddPayment.designer.cs">
+      <DependentUpon>20170724125946_AddPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20170724134339_DropOrdersTable.cs" />
+    <Compile Include="Migrations\20170724134339_DropOrdersTable.designer.cs">
+      <DependentUpon>20170724134339_DropOrdersTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20170724134513_ReAddOrdersTable.cs" />
+    <Compile Include="Migrations\20170724134513_ReAddOrdersTable.designer.cs">
+      <DependentUpon>20170724134513_ReAddOrdersTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\OrderHelperContextModelSnapshot.cs" />
     <Compile Include="Models\Employee.cs" />

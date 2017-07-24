@@ -11,8 +11,8 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="4*"></ColumnDefinition>
+            <ColumnDefinition Width="6*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Pivot x:ConnectionId='2' x:Name="menuPivot"
                Grid.Column="0" 
@@ -20,23 +20,37 @@
 
             <Pivot.HeaderTemplate>
                 <DataTemplate                           >
-                    <TextBlock x:ConnectionId='3'                              Padding="20 10 20 10"/>
+                    <TextBlock x:ConnectionId='15'                              Padding="20 10 20 10"/>
                 </DataTemplate>
             </Pivot.HeaderTemplate>
             <Pivot.ItemTemplate>
                 <DataTemplate                           >
-                    <ListView x:ConnectionId='4'                                >
+                    <ListView x:ConnectionId='16'                                
+                              SelectionMode="None"
+                              IsItemClickEnabled="True" 
+                                                            
+                              VerticalAlignment="Top"
+                              BorderBrush="Gray"
+                              BorderThickness="0,0,0,1">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                <Setter Property="Padding" Value="20" />
+                                <Setter Property="BorderBrush" Value="Black"/>
+                                <Setter Property="BorderThickness" Value="1,1,1,0"/>
+                            </Style>
+                        </ListView.ItemContainerStyle>
                         <ListView.ItemTemplate>
                             <DataTemplate                          >
-                                <Grid x:ConnectionId='5'>
+                                <Grid x:ConnectionId='17'>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="3*"></ColumnDefinition>
                                         <ColumnDefinition Width="Auto"></ColumnDefinition>
                                         <ColumnDefinition Width="*"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
-                                    <TextBlock x:ConnectionId='6'                             Grid.Column="0" />
+                                    <TextBlock x:ConnectionId='18'                             Grid.Column="0" />
                                     <TextBlock Text="$"                    Grid.Column="1" />
-                                    <TextBlock x:ConnectionId='7'                             Grid.Column="2" />
+                                    <TextBlock x:ConnectionId='19'                             Grid.Column="2" />
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -44,22 +58,147 @@
                 </DataTemplate>
             </Pivot.ItemTemplate>
         </Pivot>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="3*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0"
+                        Padding="0,0,0,10"
+                        BorderBrush="Black"
+                        BorderThickness="0,0,0,1">
+                <TextBlock Text="Order" HorizontalAlignment="Center" FontSize="30" FontWeight="SemiBold"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Product Name" HorizontalAlignment="Center"/>
+                    <TextBlock Grid.Column="1" Text="Remarks" HorizontalAlignment="Center"/>
+                    <TextBlock Grid.Column="2" Text="Quantity" HorizontalAlignment="Center"/>
+                    <TextBlock Grid.Column="3" Text="Unit Price" HorizontalAlignment="Center"/>
+                </Grid>
+            </StackPanel>
+            <ListView x:ConnectionId='3' Grid.Row="1"
+                      x:Name="orderDetailsListView"
+                      SelectionMode="None"
+                                                                      
+                      IsItemClickEnabled="True"
+                                                                >
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate                              >
+                        <Grid x:ConnectionId='10'>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"></ColumnDefinition>
+                                <ColumnDefinition Width="2*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock x:ConnectionId='11'                                      
+                                       Grid.Column="0"/>
+                            <TextBox x:ConnectionId='12'                                        
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Stretch"/>
+                            <TextBox x:ConnectionId='13'                                        
+                                       InputScope="Number" 
+                                       Grid.Column="2"
+                                       HorizontalAlignment="Center"/>
+                            <TextBox x:ConnectionId='14'                                                                                        
+                                       InputScope="CurrencyAmount"
+                                       Grid.Column="3"
+                                       HorizontalAlignment="Center"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" 
+                           Text="SubTotal: " 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="1" 
+                           Text="Discount: " 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="2" 
+                           Text="Total: " 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center"/>
+                <TextBlock x:ConnectionId='7' Grid.Row="0" 
+                           Grid.Column="1" 
+                                                                       
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"/>
+                <TextBox x:ConnectionId='8'   Grid.Row="1"
+                           Grid.Column="1"
+                                                                                                                   
+                                                                                                                           
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           BorderThickness="0"
+                           Padding="0"/>
+                <TextBox x:ConnectionId='9'   Grid.Row="2"
+                           Grid.Column="1"
+                                                                                                                
+                                                                                                                           
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           BorderThickness="0"
+                           Padding="0"/>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button x:ConnectionId='4' x:Name="btn_Cash"
+                        Grid.Column="0" 
+                        Content="Cash" 
+                                              
+                                                                      />
+                <Button x:ConnectionId='5' x:Name="btn_EftPos"
+                        Grid.Column="1" 
+                        Content="EftPos" 
+                                                
+                                                                      />
+                <Button x:ConnectionId='6' x:Name="btn_Cancel"
+                        Grid.Column="2"
+                        Content="Cancel"
+                                                
+                                                                      />
+            </Grid>
+        </Grid>
     </Grid>
 
     <Page.Resources>
-        <Style TargetType="PivotHeaderItem">
-
-        </Style>
-        <Style TargetType="ListView">
-            <Setter Property="VerticalAlignment" Value="Top"/>
-            <Setter Property="BorderBrush" Value="Black"/>
-            <Setter Property="BorderThickness" Value="0,0,0,1"/>
-        </Style>
-        <Style TargetType="ListViewItem">
-            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-            <Setter Property="Padding" Value="20" />
-            <Setter Property="BorderBrush" Value="Black"/>
-            <Setter Property="BorderThickness" Value="1,1,1,0"/>
+        <local:DecimalConverter x:Key="DecimalConverter"/>
+        <local:ReverseBoolConverter x:Key="ReverseBoolConverter"/>
+        <Style TargetType="Button">
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="BorderBrush" Value="Lavender"/>
+            <Setter Property="BorderThickness" Value="2,2,0,2"/>
         </Style>
     </Page.Resources>
 </Page>

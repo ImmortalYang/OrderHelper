@@ -8,9 +8,10 @@ using OrderHelper.Data;
 namespace OrderHelper.Migrations
 {
     [DbContext(typeof(OrderHelperContext))]
-    partial class OrderHelperContextModelSnapshot : ModelSnapshot
+    [Migration("20170724134513_ReAddOrdersTable")]
+    partial class ReAddOrdersTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2");

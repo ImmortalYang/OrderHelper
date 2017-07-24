@@ -8,9 +8,10 @@ using OrderHelper.Data;
 namespace OrderHelper.Migrations
 {
     [DbContext(typeof(OrderHelperContext))]
-    partial class OrderHelperContextModelSnapshot : ModelSnapshot
+    [Migration("20170724125946_AddPayment")]
+    partial class AddPayment
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2");
@@ -84,11 +85,11 @@ namespace OrderHelper.Migrations
 
                     b.Property<string>("Country");
 
-                    b.Property<int?>("CustomerID");
+                    b.Property<int>("CustomerID");
 
                     b.Property<decimal>("Discount");
 
-                    b.Property<int?>("EmployeeID");
+                    b.Property<int>("EmployeeID");
 
                     b.Property<DateTime>("OrderDate");
 
@@ -161,11 +162,13 @@ namespace OrderHelper.Migrations
                 {
                     b.HasOne("OrderHelper.Models.Customer", "Customer")
                         .WithMany("Orders")
-                        .HasForeignKey("CustomerID");
+                        .HasForeignKey("CustomerID")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("OrderHelper.Models.Employee", "Employee")
                         .WithMany("Orders")
-                        .HasForeignKey("EmployeeID");
+                        .HasForeignKey("EmployeeID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("OrderHelper.Models.OrderDetail", b =>

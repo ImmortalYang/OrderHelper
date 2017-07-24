@@ -11,8 +11,8 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="4*"></ColumnDefinition>
+            <ColumnDefinition Width="6*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Pivot x:Name="menuPivot"
                Grid.Column="0" 
@@ -25,7 +25,21 @@
             </Pivot.HeaderTemplate>
             <Pivot.ItemTemplate>
                 <DataTemplate x:DataType="data:Category">
-                    <ListView ItemsSource="{x:Bind Products}">
+                    <ListView ItemsSource="{x:Bind Products}"
+                              SelectionMode="None"
+                              IsItemClickEnabled="True" 
+                              ItemClick="ListView_ItemClick"
+                              VerticalAlignment="Top"
+                              BorderBrush="Gray"
+                              BorderThickness="0,0,0,1">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                <Setter Property="Padding" Value="20" />
+                                <Setter Property="BorderBrush" Value="Black"/>
+                                <Setter Property="BorderThickness" Value="1,1,1,0"/>
+                            </Style>
+                        </ListView.ItemContainerStyle>
                         <ListView.ItemTemplate>
                             <DataTemplate x:DataType="data:Product">
                                 <Grid>
@@ -44,22 +58,147 @@
                 </DataTemplate>
             </Pivot.ItemTemplate>
         </Pivot>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="3*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0"
+                        Padding="0,0,0,10"
+                        BorderBrush="Black"
+                        BorderThickness="0,0,0,1">
+                <TextBlock Text="Order" HorizontalAlignment="Center" FontSize="30" FontWeight="SemiBold"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Product Name" HorizontalAlignment="Center"/>
+                    <TextBlock Grid.Column="1" Text="Remarks" HorizontalAlignment="Center"/>
+                    <TextBlock Grid.Column="2" Text="Quantity" HorizontalAlignment="Center"/>
+                    <TextBlock Grid.Column="3" Text="Unit Price" HorizontalAlignment="Center"/>
+                </Grid>
+            </StackPanel>
+            <ListView Grid.Row="1"
+                      x:Name="orderDetailsListView"
+                      SelectionMode="None"
+                      ItemsSource="{x:Bind OrderDetails, Mode=OneWay}"
+                      IsItemClickEnabled="True"
+                      ItemClick="OrderDetailsListView_ItemClick">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="data:OrderDetail">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"></ColumnDefinition>
+                                <ColumnDefinition Width="2*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{x:Bind Product.ProductName}"  
+                                       Grid.Column="0"/>
+                            <TextBox   Text="{x:Bind Remarks, Mode=TwoWay}" 
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Stretch"/>
+                            <TextBox   Text="{x:Bind Quantity,Mode=TwoWay}" 
+                                       InputScope="Number" 
+                                       Grid.Column="2"
+                                       HorizontalAlignment="Center"/>
+                            <TextBox   Text="{x:Bind UnitPrice, Mode=TwoWay, Converter={StaticResource DecimalConverter}}"  
+                                       InputScope="CurrencyAmount"
+                                       Grid.Column="3"
+                                       HorizontalAlignment="Center"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" 
+                           Text="SubTotal: " 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="1" 
+                           Text="Discount: " 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="2" 
+                           Text="Total: " 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="0" 
+                           Grid.Column="1" 
+                           Text="{x:Bind Order.Subtotal, Mode=OneWay}" 
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"/>
+                <TextBox   Grid.Row="1"
+                           Grid.Column="1"
+                           Text="{x:Bind Order.Discount, Mode=TwoWay, Converter={StaticResource DecimalConverter}}"
+                           IsReadOnly="{x:Bind HasOrderItem, Mode=OneWay, Converter={StaticResource ReverseBoolConverter}}"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           BorderThickness="0"
+                           Padding="0"/>
+                <TextBox   Grid.Row="2"
+                           Grid.Column="1"
+                           Text="{x:Bind Order.Total, Mode=TwoWay, Converter={StaticResource DecimalConverter}}"
+                           IsReadOnly="{x:Bind HasOrderItem, Mode=OneWay, Converter={StaticResource ReverseBoolConverter}}"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           BorderThickness="0"
+                           Padding="0"/>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="btn_Cash"
+                        Grid.Column="0" 
+                        Content="Cash" 
+                        Click="btn_Cash_Click"
+                        IsEnabled="{x:Bind HasOrderItem, Mode=OneWay}"/>
+                <Button x:Name="btn_EftPos"
+                        Grid.Column="1" 
+                        Content="EftPos" 
+                        Click="btn_EftPos_Click"
+                        IsEnabled="{x:Bind HasOrderItem, Mode=OneWay}"/>
+                <Button x:Name="btn_Cancel"
+                        Grid.Column="2"
+                        Content="Cancel"
+                        Click="btn_Cancel_Click"
+                        IsEnabled="{x:Bind HasOrderItem, Mode=OneWay}"/>
+            </Grid>
+        </Grid>
     </Grid>
 
     <Page.Resources>
-        <Style TargetType="PivotHeaderItem">
-
-        </Style>
-        <Style TargetType="ListView">
-            <Setter Property="VerticalAlignment" Value="Top"/>
-            <Setter Property="BorderBrush" Value="Black"/>
-            <Setter Property="BorderThickness" Value="0,0,0,1"/>
-        </Style>
-        <Style TargetType="ListViewItem">
-            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-            <Setter Property="Padding" Value="20" />
-            <Setter Property="BorderBrush" Value="Black"/>
-            <Setter Property="BorderThickness" Value="1,1,1,0"/>
+        <local:DecimalConverter x:Key="DecimalConverter"/>
+        <local:ReverseBoolConverter x:Key="ReverseBoolConverter"/>
+        <Style TargetType="Button">
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="BorderBrush" Value="Lavender"/>
+            <Setter Property="BorderThickness" Value="2,2,0,2"/>
         </Style>
     </Page.Resources>
 </Page>
