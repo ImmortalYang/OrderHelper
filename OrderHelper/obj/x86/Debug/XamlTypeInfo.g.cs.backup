@@ -132,7 +132,7 @@ namespace OrderHelper.OrderHelper_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[25];
+            _typeNameTable = new string[24];
             _typeNameTable[0] = "OrderHelper.DecimalConverter";
             _typeNameTable[1] = "Object";
             _typeNameTable[2] = "OrderHelper.ReverseBoolConverter";
@@ -151,15 +151,14 @@ namespace OrderHelper.OrderHelper_XamlTypeInfo
             _typeNameTable[15] = "Boolean";
             _typeNameTable[16] = "OrderHelper.MasterPage";
             _typeNameTable[17] = "OrderHelper.OrderIndexPage";
-            _typeNameTable[18] = "System.Collections.ObjectModel.ObservableCollection`1<OrderHelper.Models.Order>";
-            _typeNameTable[19] = "System.Collections.ObjectModel.Collection`1<OrderHelper.Models.Order>";
-            _typeNameTable[20] = "System.Nullable`1<Int32>";
-            _typeNameTable[21] = "System.DateTime";
-            _typeNameTable[22] = "OrderHelper.Models.Customer";
-            _typeNameTable[23] = "OrderHelper.Models.Employee";
-            _typeNameTable[24] = "System.Collections.Generic.ICollection`1<OrderHelper.Models.OrderDetail>";
+            _typeNameTable[18] = "System.Collections.Generic.ICollection`1<OrderHelper.Models.Order>";
+            _typeNameTable[19] = "System.Nullable`1<Int32>";
+            _typeNameTable[20] = "System.DateTime";
+            _typeNameTable[21] = "OrderHelper.Models.Customer";
+            _typeNameTable[22] = "OrderHelper.Models.Employee";
+            _typeNameTable[23] = "System.Collections.Generic.ICollection`1<OrderHelper.Models.OrderDetail>";
 
-            _typeTable = new global::System.Type[25];
+            _typeTable = new global::System.Type[24];
             _typeTable[0] = typeof(global::OrderHelper.DecimalConverter);
             _typeTable[1] = typeof(global::System.Object);
             _typeTable[2] = typeof(global::OrderHelper.ReverseBoolConverter);
@@ -178,13 +177,12 @@ namespace OrderHelper.OrderHelper_XamlTypeInfo
             _typeTable[15] = typeof(global::System.Boolean);
             _typeTable[16] = typeof(global::OrderHelper.MasterPage);
             _typeTable[17] = typeof(global::OrderHelper.OrderIndexPage);
-            _typeTable[18] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::OrderHelper.Models.Order>);
-            _typeTable[19] = typeof(global::System.Collections.ObjectModel.Collection<global::OrderHelper.Models.Order>);
-            _typeTable[20] = typeof(global::System.Nullable<global::System.Int32>);
-            _typeTable[21] = typeof(global::System.DateTime);
-            _typeTable[22] = typeof(global::OrderHelper.Models.Customer);
-            _typeTable[23] = typeof(global::OrderHelper.Models.Employee);
-            _typeTable[24] = typeof(global::System.Collections.Generic.ICollection<global::OrderHelper.Models.OrderDetail>);
+            _typeTable[18] = typeof(global::System.Collections.Generic.ICollection<global::OrderHelper.Models.Order>);
+            _typeTable[19] = typeof(global::System.Nullable<global::System.Int32>);
+            _typeTable[20] = typeof(global::System.DateTime);
+            _typeTable[21] = typeof(global::OrderHelper.Models.Customer);
+            _typeTable[22] = typeof(global::OrderHelper.Models.Employee);
+            _typeTable[23] = typeof(global::System.Collections.Generic.ICollection<global::OrderHelper.Models.OrderDetail>);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -229,10 +227,8 @@ namespace OrderHelper.OrderHelper_XamlTypeInfo
         private object Activate_14_Product() { return new global::OrderHelper.Models.Product(); }
         private object Activate_16_MasterPage() { return new global::OrderHelper.MasterPage(); }
         private object Activate_17_OrderIndexPage() { return new global::OrderHelper.OrderIndexPage(); }
-        private object Activate_18_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::OrderHelper.Models.Order>(); }
-        private object Activate_19_Collection() { return new global::System.Collections.ObjectModel.Collection<global::OrderHelper.Models.Order>(); }
-        private object Activate_22_Customer() { return new global::OrderHelper.Models.Customer(); }
-        private object Activate_23_Employee() { return new global::OrderHelper.Models.Employee(); }
+        private object Activate_21_Customer() { return new global::OrderHelper.Models.Customer(); }
+        private object Activate_22_Employee() { return new global::OrderHelper.Models.Employee(); }
         private void VectorAdd_7_ObservableCollection(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::OrderHelper.Models.OrderDetail>)instance;
@@ -245,19 +241,13 @@ namespace OrderHelper.OrderHelper_XamlTypeInfo
             var newItem = (global::OrderHelper.Models.OrderDetail)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_18_ObservableCollection(object instance, object item)
+        private void VectorAdd_18_ICollection(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::OrderHelper.Models.Order>)instance;
             var newItem = (global::OrderHelper.Models.Order)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_19_Collection(object instance, object item)
-        {
-            var collection = (global::System.Collections.Generic.ICollection<global::OrderHelper.Models.Order>)instance;
-            var newItem = (global::OrderHelper.Models.Order)item;
-            collection.Add(newItem);
-        }
-        private void VectorAdd_24_ICollection(object instance, object item)
+        private void VectorAdd_23_ICollection(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::OrderHelper.Models.OrderDetail>)instance;
             var newItem = (global::OrderHelper.Models.OrderDetail)item;
@@ -408,49 +398,42 @@ namespace OrderHelper.OrderHelper_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 18:   //  System.Collections.ObjectModel.ObservableCollection`1<OrderHelper.Models.Order>
-                userType = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.Collection`1<OrderHelper.Models.Order>"));
-                userType.CollectionAdd = VectorAdd_18_ObservableCollection;
-                userType.SetIsReturnTypeStub();
-                xamlType = userType;
-                break;
-
-            case 19:   //  System.Collections.ObjectModel.Collection`1<OrderHelper.Models.Order>
-                userType = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_19_Collection;
-                userType.CollectionAdd = VectorAdd_19_Collection;
-                xamlType = userType;
-                break;
-
-            case 20:   //  System.Nullable`1<Int32>
-                userType = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
-                userType.SetIsReturnTypeStub();
-                xamlType = userType;
-                break;
-
-            case 21:   //  System.DateTime
-                userType = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
-                userType.SetIsReturnTypeStub();
-                xamlType = userType;
-                break;
-
-            case 22:   //  OrderHelper.Models.Customer
-                userType = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.SetIsReturnTypeStub();
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 23:   //  OrderHelper.Models.Employee
-                userType = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.SetIsReturnTypeStub();
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 24:   //  System.Collections.Generic.ICollection`1<OrderHelper.Models.OrderDetail>
+            case 18:   //  System.Collections.Generic.ICollection`1<OrderHelper.Models.Order>
                 userType = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlUserType(this, typeName, type, null);
-                userType.CollectionAdd = VectorAdd_24_ICollection;
+                userType.CollectionAdd = VectorAdd_18_ICollection;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 19:   //  System.Nullable`1<Int32>
+                userType = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 20:   //  System.DateTime
+                userType = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 21:   //  OrderHelper.Models.Customer
+                userType = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 22:   //  OrderHelper.Models.Employee
+                userType = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 23:   //  System.Collections.Generic.ICollection`1<OrderHelper.Models.OrderDetail>
+                userType = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlUserType(this, typeName, type, null);
+                userType.CollectionAdd = VectorAdd_23_ICollection;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
@@ -577,7 +560,7 @@ namespace OrderHelper.OrderHelper_XamlTypeInfo
         private void set_11_OrderIndexPage_Orders(object instance, object Value)
         {
             var that = (global::OrderHelper.OrderIndexPage)instance;
-            that.Orders = (global::System.Collections.ObjectModel.ObservableCollection<global::OrderHelper.Models.Order>)Value;
+            that.Orders = (global::System.Collections.Generic.ICollection<global::OrderHelper.Models.Order>)Value;
         }
         private object get_12_Order_ID(object instance)
         {
@@ -825,7 +808,7 @@ namespace OrderHelper.OrderHelper_XamlTypeInfo
                 break;
             case "OrderHelper.OrderIndexPage.Orders":
                 userType = (global::OrderHelper.OrderHelper_XamlTypeInfo.XamlUserType)GetXamlTypeByName("OrderHelper.OrderIndexPage");
-                xamlMember = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlMember(this, "Orders", "System.Collections.ObjectModel.ObservableCollection`1<OrderHelper.Models.Order>");
+                xamlMember = new global::OrderHelper.OrderHelper_XamlTypeInfo.XamlMember(this, "Orders", "System.Collections.Generic.ICollection`1<OrderHelper.Models.Order>");
                 xamlMember.Getter = get_11_OrderIndexPage_Orders;
                 xamlMember.Setter = set_11_OrderIndexPage_Orders;
                 break;

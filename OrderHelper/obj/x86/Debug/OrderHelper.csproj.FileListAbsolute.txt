@@ -122,7 +122,6 @@ C:\Temp\UWP\C#\OrderHelper\OrderHelper\bin\x86\Debug\System.Xml.ReaderWriter.dll
 C:\Temp\UWP\C#\OrderHelper\OrderHelper\bin\x86\Debug\System.Xml.XDocument.dll
 C:\Temp\UWP\C#\OrderHelper\OrderHelper\bin\x86\Debug\System.Xml.XmlDocument.dll
 C:\Temp\UWP\C#\OrderHelper\OrderHelper\bin\x86\Debug\System.Xml.XmlSerializer.dll
-C:\Temp\UWP\C#\OrderHelper\OrderHelper\obj\x86\Debug\OrderHelper.csprojResolveAssemblyReference.cache
 C:\Temp\UWP\C#\OrderHelper\OrderHelper\obj\x86\Debug\App.g.i.cs
 C:\Temp\UWP\C#\OrderHelper\OrderHelper\obj\x86\Debug\App.g.cs
 C:\Temp\UWP\C#\OrderHelper\OrderHelper\obj\x86\Debug\MainPage.g.i.cs
@@ -253,3 +252,14 @@ C:\Temp\UWP\C#\OrderHelper\OrderHelper\obj\x86\Debug\Microsoft.Extensions.Loggin
 C:\Temp\UWP\C#\OrderHelper\OrderHelper\obj\x86\Debug\Microsoft.Extensions.Options\en-us\Microsoft.Extensions.Options.Resources.resw
 C:\Temp\UWP\C#\OrderHelper\OrderHelper\obj\x86\Debug\Microsoft.Extensions.Primitives\en-us\Microsoft.Extensions.Primitives.Resources.resw
 C:\Temp\UWP\C#\OrderHelper\OrderHelper\obj\x86\Debug\OrderHelper.csproj.GenerateResource.Cache
+C:\Temp\UWP\C#\OrderHelper\OrderHelper\obj\x86\Debug\MasterPage.g.i.cs
+C:\Temp\UWP\C#\OrderHelper\OrderHelper\obj\x86\Debug\MasterPage.g.cs
+C:\Temp\UWP\C#\OrderHelper\OrderHelper\obj\x86\Debug\MasterPage.xaml
+C:\Temp\UWP\C#\OrderHelper\OrderHelper\obj\x86\Debug\MasterPage.xbf
+C:\Temp\UWP\C#\OrderHelper\OrderHelper\bin\x86\Debug\MasterPage.xbf
+C:\Temp\UWP\C#\OrderHelper\OrderHelper\bin\x86\Debug\OrderIndexPage.xbf
+C:\Temp\UWP\C#\OrderHelper\OrderHelper\obj\x86\Debug\OrderIndexPage.g.i.cs
+C:\Temp\UWP\C#\OrderHelper\OrderHelper\obj\x86\Debug\OrderIndexPage.g.cs
+C:\Temp\UWP\C#\OrderHelper\OrderHelper\obj\x86\Debug\OrderIndexPage.xaml
+C:\Temp\UWP\C#\OrderHelper\OrderHelper\obj\x86\Debug\OrderIndexPage.xbf
+C:\Temp\UWP\C#\OrderHelper\OrderHelper\obj\x86\Debug\OrderHelper.csprojResolveAssemblyReference.cache
