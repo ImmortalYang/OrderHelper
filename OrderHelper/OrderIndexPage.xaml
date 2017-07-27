@@ -61,9 +61,14 @@
                                 <ColumnDefinition Width="*"></ColumnDefinition>
                                 <ColumnDefinition Width="*"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
-                            <Button Content="Edit"    Grid.Column="0"/>
-                            <Button Content="Details" Grid.Column="1"/>
-                            <Button Content="Delete"  Grid.Column="2" Click="Delete_Button_Click" TabIndex="{x:Bind ID}"/>
+                            <Button Content="Edit"    
+                                    Grid.Column="0"/>
+                            <Button Content="Details" 
+                                    Grid.Column="1"/>
+                            <Button Content="Delete"  
+                                    Grid.Column="2" 
+                                    Click="Delete_Button_Click" 
+                                    TabIndex="{x:Bind ID}"/>
                         </Grid>
                     </Grid>
                 </DataTemplate>

@@ -9,7 +9,7 @@
     mc:Ignorable="d"
     Loaded="Page_Loaded">
 
-    <Grid>
+    <Grid x:Name="rootGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="4*"></ColumnDefinition>
             <ColumnDefinition Width="6*"></ColumnDefinition>
@@ -174,12 +174,12 @@
                 <Button x:Name="btn_Cash"
                         Grid.Column="0" 
                         Content="Cash" 
-                        Click="btn_Cash_Click"
+                        Click="btn_Checkout_Click"
                         IsEnabled="{x:Bind HasOrderItem, Mode=OneWay}"/>
                 <Button x:Name="btn_EftPos"
                         Grid.Column="1" 
                         Content="EftPos" 
-                        Click="btn_EftPos_Click"
+                        Click="btn_Checkout_Click"
                         IsEnabled="{x:Bind HasOrderItem, Mode=OneWay}"/>
                 <Button x:Name="btn_Cancel"
                         Grid.Column="2"
@@ -188,6 +188,24 @@
                         IsEnabled="{x:Bind HasOrderItem, Mode=OneWay}"/>
             </Grid>
         </Grid>
+
+        <Popup x:Name="errorPopup"
+               IsOpen="False"
+               IsLightDismissEnabled="True"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               Grid.ColumnSpan="2"
+               Width="200"
+               Height="Auto">
+            <Border BorderBrush="{StaticResource ApplicationForegroundThemeBrush}" 
+                    Background="LightGray"
+                    BorderThickness="2" Width="200" Height="Auto">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Padding="5">
+                        <TextBlock Text="Error" FontSize="20" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="errorMsg" HorizontalAlignment="Left" TextWrapping="Wrap" />
+                    </StackPanel>
+                </Border>
+        </Popup>
     </Grid>
 
     <Page.Resources>
@@ -198,7 +216,9 @@
             <Setter Property="VerticalAlignment" Value="Stretch"/>
             <Setter Property="FontSize" Value="30"/>
             <Setter Property="BorderBrush" Value="Lavender"/>
-            <Setter Property="BorderThickness" Value="2,2,0,2"/>
+            <Setter Property="BorderThickness" Value="2,2,2,2"/>
+            <Setter Property="Background" Value="BlueViolet"/>
+            <Setter Property="Margin" Value="5"/>
         </Style>
     </Page.Resources>
 </Page>

@@ -61,9 +61,14 @@
                                 <ColumnDefinition Width="*"></ColumnDefinition>
                                 <ColumnDefinition Width="*"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
-                            <Button Content="Edit"    Grid.Column="0"/>
-                            <Button Content="Details" Grid.Column="1"/>
-                            <Button x:ConnectionId='10' Content="Delete"  Grid.Column="2"                                                   />
+                            <Button Content="Edit"    
+                                    Grid.Column="0"/>
+                            <Button Content="Details" 
+                                    Grid.Column="1"/>
+                            <Button x:ConnectionId='10' Content="Delete"  
+                                    Grid.Column="2" 
+                                                                
+                                                          />
                         </Grid>
                     </Grid>
                 </DataTemplate>

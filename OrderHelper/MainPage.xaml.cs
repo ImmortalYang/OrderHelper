@@ -79,8 +79,8 @@ namespace OrderHelper
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            
-            
+
+
         }
 
         public void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -128,7 +128,7 @@ namespace OrderHelper
         private void OrderDetailsListView_ItemClick(object sender, ItemClickEventArgs e)
         {
             OrderDetail orderItemToRemove = e.ClickedItem as OrderDetail;
-            if(--orderItemToRemove.Quantity == 0)
+            if (--orderItemToRemove.Quantity == 0)
             {
                 this.OrderDetails.Remove(orderItemToRemove);
             }
@@ -193,58 +193,37 @@ namespace OrderHelper
             }
         }
 
-        private async void btn_Cash_Click(object sender, RoutedEventArgs e)
+        private async void btn_Checkout_Click(object sender, RoutedEventArgs e)
         {
-            ContentDialog confirmOrderDialog = new ContentDialog
+            // Set order
+            Order.OrderDate = DateTime.Now;
+            Order.Payment = (sender as Button).Content.ToString();
+            // Speak order
+            await Order.Speak();
+            // Print order
+            try
             {
-                Title = "Confirm Order",
-                Content = "This order will be payed by cash.",
-                CloseButtonText = "Back to order",
-                PrimaryButtonText = "Checkout"
-            };
-            if (ContentDialogResult.Primary == await confirmOrderDialog.ShowAsync())
-            {
-                Order.OrderDate = DateTime.Now;
-                Order.Payment = "Cash";
-                using(var db = new OrderHelperContext())
-                {
-                    foreach (OrderDetail od in OrderDetails)
-                    {
-                        //db.Entry(od.Product).State = EntityState.Detached;
-                        od.Product = null;
-                    }
-                    db.Add(this.Order);
-                    await db.SaveChangesAsync();
-                }
-                this.InitializeOrders();
+                await Order.Print();
             }
+            catch(Exception ex)
+            {
+                this.errorMsg.Text = ex.Message;
+                this.errorPopup.IsOpen = true;
+            }
+            // Save order
+            using (var db = new OrderHelperContext())
+            {
+                foreach (OrderDetail od in OrderDetails)
+                {
+                    //db.Entry(od.Product).State = EntityState.Detached;
+                    od.Product = null;
+                }
+                db.Add(this.Order);
+                await db.SaveChangesAsync();
+            }
+            // Reset order
+            this.InitializeOrders();
         }
 
-        private async void btn_EftPos_Click(object sender, RoutedEventArgs e)
-        {
-            ContentDialog confirmOrderDialog = new ContentDialog
-            {
-                Title = "Confirm Order",
-                Content = "This order will be payed by EftPos.",
-                CloseButtonText = "Back to order",
-                PrimaryButtonText = "Checkout"
-            };
-            if (ContentDialogResult.Primary == await confirmOrderDialog.ShowAsync())
-            {
-                Order.OrderDate = DateTime.Now;
-                Order.Payment = "EftPos";
-                using (var db = new OrderHelperContext())
-                {
-                    foreach(OrderDetail od in OrderDetails)
-                    {
-                        //db.Entry(od.Product).State = EntityState.Detached;
-                        od.Product = null;
-                    }
-                    db.Add(this.Order);
-                    await db.SaveChangesAsync();
-                }
-                this.InitializeOrders();
-            }
-        }
     }
 }

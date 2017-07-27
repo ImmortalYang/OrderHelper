@@ -263,3 +263,4 @@ C:\Temp\UWP\C#\OrderHelper\OrderHelper\obj\x86\Debug\OrderIndexPage.g.cs
 C:\Temp\UWP\C#\OrderHelper\OrderHelper\obj\x86\Debug\OrderIndexPage.xaml
 C:\Temp\UWP\C#\OrderHelper\OrderHelper\obj\x86\Debug\OrderIndexPage.xbf
 C:\Temp\UWP\C#\OrderHelper\OrderHelper\obj\x86\Debug\OrderHelper.csprojResolveAssemblyReference.cache
+C:\Temp\UWP\C#\OrderHelper\OrderHelper\bin\x86\Debug\Epson.Epos.Epos2.winmd
