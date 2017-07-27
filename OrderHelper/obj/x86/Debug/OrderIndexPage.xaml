@@ -23,6 +23,7 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="2*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
+            <TextBlock Text="ID"                       />
             <TextBlock Text="SubTotal"  Grid.Column="1"/>
             <TextBlock Text="Discount"  Grid.Column="2"/>
             <TextBlock Text="Total"     Grid.Column="3"/>
@@ -50,11 +51,12 @@
                             <ColumnDefinition Width="*"></ColumnDefinition>
                             <ColumnDefinition Width="2*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <TextBlock x:ConnectionId='5'                           Grid.Column="1"/>
-                        <TextBlock x:ConnectionId='6'                                                                        Grid.Column="2"/>
-                        <TextBlock x:ConnectionId='7'                                                                        Grid.Column="3"/>
-                        <TextBlock x:ConnectionId='8'                           Grid.Column="4"/>
-                        <TextBlock x:ConnectionId='9'                           Grid.Column="5"/>
+                        <TextBlock x:ConnectionId='5'                                          />
+                        <TextBlock x:ConnectionId='6'                           Grid.Column="1"/>
+                        <TextBlock x:ConnectionId='7'                                                                        Grid.Column="2"/>
+                        <TextBlock x:ConnectionId='8'                                                                        Grid.Column="3"/>
+                        <TextBlock x:ConnectionId='9'                           Grid.Column="4"/>
+                        <TextBlock x:ConnectionId='10'                           Grid.Column="5"/>
                         <Grid Grid.Column="6">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"></ColumnDefinition>
@@ -63,11 +65,13 @@
                             </Grid.ColumnDefinitions>
                             <Button Content="Edit"    
                                     Grid.Column="0"/>
-                            <Button Content="Details" 
-                                    Grid.Column="1"/>
-                            <Button x:ConnectionId='10' Content="Delete"  
+                            <Button x:ConnectionId='11' Content="Print" 
+                                                           
+                                    Grid.Column="1"
+                                                          />
+                            <Button x:ConnectionId='12' Content="Delete"  
                                     Grid.Column="2" 
-                                                                
+                                                             
                                                           />
                         </Grid>
                     </Grid>

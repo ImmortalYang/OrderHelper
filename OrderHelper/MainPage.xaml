@@ -170,6 +170,7 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Button x:Name="btn_Cash"
                         Grid.Column="0" 
@@ -186,6 +187,10 @@
                         Content="Cancel"
                         Click="btn_Cancel_Click"
                         IsEnabled="{x:Bind HasOrderItem, Mode=OneWay}"/>
+                <Button x:Name="btn_Reprint"
+                        Grid.Column="3"
+                        Content="Reprint"
+                        Click="btn_Reprint_Click"/>
             </Grid>
         </Grid>
 

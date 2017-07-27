@@ -1,4 +1,5 @@
-﻿using OrderHelper.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using OrderHelper.Data;
 using OrderHelper.Models;
 using System;
 using System.Collections.Generic;
@@ -59,7 +60,23 @@ namespace OrderHelper
             this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        private void Delete_Button_Click(object sender, RoutedEventArgs e)
+        // Print the receipt of selected order
+        private async void btn_Print_Click(object sender, RoutedEventArgs e)
+        {
+            var orderID = (sender as Button).TabIndex;
+            using(var db = new OrderHelperContext())
+            {
+                var orderToPrint = await db.Orders
+                    .Include(o => o.OrderDetails)
+                        .ThenInclude(od => od.Product)
+                    .SingleOrDefaultAsync(o => o.ID == orderID);
+                if (orderToPrint == null)
+                    return;
+                await orderToPrint.Print();
+            }
+        }
+
+        private void btn_Delete_Click(object sender, RoutedEventArgs e)
         {
             int orderID = (sender as Button).TabIndex;
             var orderToDelete = Orders

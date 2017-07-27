@@ -31,13 +31,13 @@
     <AppXManifest Include="C:\Temp\UWP\C#\OrderHelper\OrderHelper\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-07-27T01:51:03.028</Modified>
+      <Modified>2017-07-27T02:24:11.428</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Temp\UWP\C#\OrderHelper\OrderHelper\bin\x86\Debug\OrderHelper.exe">
       <PackagePath>entrypoint\OrderHelper.exe</PackagePath>
-      <Modified>2017-07-27T01:51:00.749</Modified>
+      <Modified>2017-07-27T02:24:09.176</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Epson.Epos.Epos2\2.5.2\References\CommonConfiguration\Neutral\Epson.Epos.Epos2.winmd">
       <PackagePath>Epson.Epos.Epos2.winmd</PackagePath>
@@ -669,11 +669,11 @@
     <AppxPackagedFile Include="C:\Temp\UWP\C#\OrderHelper\OrderHelper\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-07-26T23:32:21.046</Modified>
+      <Modified>2017-07-27T02:24:09.737</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Temp\UWP\C#\OrderHelper\OrderHelper\bin\x86\Debug\Core\OrderHelper.exe">
       <PackagePath>OrderHelper.exe</PackagePath>
-      <Modified>2017-07-27T01:51:03.024</Modified>
+      <Modified>2017-07-27T02:24:11.423</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

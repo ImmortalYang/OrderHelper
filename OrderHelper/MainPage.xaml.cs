@@ -10,6 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -201,15 +202,7 @@ namespace OrderHelper
             // Speak order
             await Order.Speak();
             // Print order
-            try
-            {
-                await Order.Print();
-            }
-            catch(Exception ex)
-            {
-                this.errorMsg.Text = ex.Message;
-                this.errorPopup.IsOpen = true;
-            }
+            await PrintOrder(Order);
             // Save order
             using (var db = new OrderHelperContext())
             {
@@ -225,5 +218,37 @@ namespace OrderHelper
             this.InitializeOrders();
         }
 
+        // Reprint last receipt
+        private async void btn_Reprint_Click(object sender, RoutedEventArgs e)
+        {
+            using(var db = new OrderHelperContext())
+            {
+                // Get the latest order with order details list
+                var lastOrderDate = await db.Orders.MaxAsync(o => o.OrderDate);
+                var lastOrder = await db.Orders
+                    .Include(o => o.OrderDetails)
+                        .ThenInclude(od => od.Product)
+                    .FirstOrDefaultAsync(o => o.OrderDate == lastOrderDate);
+                if (lastOrder == null)
+                    return;
+                await PrintOrder(lastOrder);
+            }
+        }
+
+        // Print order and show error message if applicable
+        private async Task PrintOrder(Order order)
+        {
+            if (order == null)
+                return;
+            try
+            {
+                await order.Print();
+            }
+            catch (Exception ex)
+            {
+                this.errorMsg.Text = ex.Message;
+                this.errorPopup.IsOpen = true;
+            }
+        }
     }
 }

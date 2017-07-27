@@ -20,12 +20,12 @@
 
             <Pivot.HeaderTemplate>
                 <DataTemplate                           >
-                    <TextBlock x:ConnectionId='18'                              Padding="20 10 20 10"/>
+                    <TextBlock x:ConnectionId='19'                              Padding="20 10 20 10"/>
                 </DataTemplate>
             </Pivot.HeaderTemplate>
             <Pivot.ItemTemplate>
                 <DataTemplate                           >
-                    <ListView x:ConnectionId='19'                                
+                    <ListView x:ConnectionId='20'                                
                               SelectionMode="None"
                               IsItemClickEnabled="True" 
                                                             
@@ -42,15 +42,15 @@
                         </ListView.ItemContainerStyle>
                         <ListView.ItemTemplate>
                             <DataTemplate                          >
-                                <Grid x:ConnectionId='20'>
+                                <Grid x:ConnectionId='21'>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="3*"></ColumnDefinition>
                                         <ColumnDefinition Width="Auto"></ColumnDefinition>
                                         <ColumnDefinition Width="*"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
-                                    <TextBlock x:ConnectionId='21'                             Grid.Column="0" />
+                                    <TextBlock x:ConnectionId='22'                             Grid.Column="0" />
                                     <TextBlock Text="$"                    Grid.Column="1" />
-                                    <TextBlock x:ConnectionId='22'                             Grid.Column="2" />
+                                    <TextBlock x:ConnectionId='23'                             Grid.Column="2" />
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -97,23 +97,23 @@
                 </ListView.ItemContainerStyle>
                 <ListView.ItemTemplate>
                     <DataTemplate                              >
-                        <Grid x:ConnectionId='13'>
+                        <Grid x:ConnectionId='14'>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="3*"></ColumnDefinition>
                                 <ColumnDefinition Width="2*"></ColumnDefinition>
                                 <ColumnDefinition Width="*"></ColumnDefinition>
                                 <ColumnDefinition Width="*"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
-                            <TextBlock x:ConnectionId='14'                                      
+                            <TextBlock x:ConnectionId='15'                                      
                                        Grid.Column="0"/>
-                            <TextBox x:ConnectionId='15'                                        
+                            <TextBox x:ConnectionId='16'                                        
                                        Grid.Column="1"
                                        HorizontalAlignment="Stretch"/>
-                            <TextBox x:ConnectionId='16'                                        
+                            <TextBox x:ConnectionId='17'                                        
                                        InputScope="Number" 
                                        Grid.Column="2"
                                        HorizontalAlignment="Center"/>
-                            <TextBox x:ConnectionId='17'                                                                                        
+                            <TextBox x:ConnectionId='18'                                                                                        
                                        InputScope="CurrencyAmount"
                                        Grid.Column="3"
                                        HorizontalAlignment="Center"/>
@@ -143,12 +143,12 @@
                            Text="Total: " 
                            HorizontalAlignment="Center" 
                            VerticalAlignment="Center"/>
-                <TextBlock x:ConnectionId='10' Grid.Row="0" 
+                <TextBlock x:ConnectionId='11' Grid.Row="0" 
                            Grid.Column="1" 
                                                                        
                            HorizontalAlignment="Left"
                            VerticalAlignment="Center"/>
-                <TextBox x:ConnectionId='11'   Grid.Row="1"
+                <TextBox x:ConnectionId='12'   Grid.Row="1"
                            Grid.Column="1"
                                                                                                                    
                                                                                                                            
@@ -156,7 +156,7 @@
                            VerticalAlignment="Center"
                            BorderThickness="0"
                            Padding="0"/>
-                <TextBox x:ConnectionId='12'   Grid.Row="2"
+                <TextBox x:ConnectionId='13'   Grid.Row="2"
                            Grid.Column="1"
                                                                                                                 
                                                                                                                            
@@ -167,6 +167,7 @@
             </Grid>
             <Grid Grid.Row="3">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
@@ -186,6 +187,10 @@
                         Content="Cancel"
                                                 
                                                                       />
+                <Button x:ConnectionId='10' x:Name="btn_Reprint"
+                        Grid.Column="3"
+                        Content="Reprint"
+                                                 />
             </Grid>
         </Grid>
 
